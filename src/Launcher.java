@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.nio.file.*;
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Launcher {
     public static void main(String[] args){
@@ -39,17 +40,19 @@ public class Launcher {
                     content = content.replaceAll("\\;", " ");
                     content = content.replaceAll("\\'"," ");
                     content = content.replaceAll("  "," ");
-                    content = conten.replaceAll("\n"," ");
+                    content = content.replaceAll("\n"," ");
                     content = content.toLowerCase();
                     String[] contenttabs = content.split(" ");
                     for(String contenttab : contenttabs){
                         if (contenttab.isBlank()){
-                            contenttab = null;
+                            contenttab = "null";
                         }
                         System.out.println(contenttab);
                     }
-                    Stream Streamcontent = stream(contenttabs);
-                    System.out.println(content);
+                    Stream Streamcontent = java.util.Arrays.stream(contenttabs);
+                    Streamcontent.forEach(s -> System.out.println(s));
+
+
                 }
                 catch (IOException e){
                     e.printStackTrace();
