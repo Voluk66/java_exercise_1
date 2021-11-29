@@ -9,18 +9,19 @@ public class Launcher {
         while (!Argument.equals("quit")){
             if (Argument.equals("fibo")){
                 int nbr = var.nextInt();
-
                 for (i=2;i < nbr+1 ;i++){
                     fn = f1 + f0;
                     f0 = f1;
                     f1 = fn;
                 }
-                System.out.println(" "+fn);
+                f0=0;
+                f1=1;
+                System.out.println(""+fn);
             }
             else {
                 System.out.println("Unknow Command");
             }
-            Argument = var.nextLine();
+            Argument = var.next();
         }
 
     }
