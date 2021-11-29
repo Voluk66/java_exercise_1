@@ -5,12 +5,10 @@ public class Launcher {
         System.out.println("Bienvenue !");
         java.util.Scanner var = new java.util.Scanner(System.in);
         String Argument = var.nextLine();
-        if (Argument.equals("quit")){
-            return;
-        }
-        else {
+        while (!Argument.equals("quit")){
             System.out.println("Unknow Command");
-            return;
+            Argument = var.nextLine();
         }
+
     }
 }
