@@ -1,8 +1,8 @@
 import java.io.IOException;
-import java.util.Scanner;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.stream.Stream;
 
 public class Launcher {
     public static void main(String[] args){
@@ -14,7 +14,9 @@ public class Launcher {
         String path;
         String content;
         ArrayList<String> wordtab = new ArrayList<String>();
-        int freq[];
+        int freq[] = new int[100];
+        int passage = 0;
+        int max = 0;
         while (!Argument.equals("quit")){
             if (Argument.equals("fibo")){
                 int nbr = var.nextInt();
@@ -61,12 +63,21 @@ public class Launcher {
                                 }
                                 freq[indice] = cpt;
                                 wordtab.add(contenttab);
+
+                                for (int k = 0; k < freq.length; k++) {
+                                    if (max < freq[k]) {
+                                        max = freq[k];
+                                        passage = k;
+                                    }
+                                }
+
                             }
 
                         }
                         indice += 1;
-                        System.out.println(contenttab);
+                        //System.out.println(contenttab);
                     }
+                    System.out.println("Le mot le plus utilisé est :" + contenttabs[passage]);
                 }
                 catch (IOException e){
                     e.printStackTrace();
