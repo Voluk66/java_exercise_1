@@ -1,2 +1,3 @@
 # java_exercise_1
-Fait jusqu'a parti 5, ou j'ai manqué de temps
+Parti 7: Manque de temps pour faire la prediction il ne manque plus que cet  
+algorithme à implémenter
