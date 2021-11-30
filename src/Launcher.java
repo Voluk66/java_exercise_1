@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
 import java.nio.file.*;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.stream.Stream;
 
 public class Launcher {
@@ -13,6 +13,8 @@ public class Launcher {
         Path fichierchemin;
         String path;
         String content;
+        ArrayList<String> wordtab = new ArrayList<String>();
+        int freq[];
         while (!Argument.equals("quit")){
             if (Argument.equals("fibo")){
                 int nbr = var.nextInt();
@@ -43,16 +45,28 @@ public class Launcher {
                     content = content.replaceAll("\n"," ");
                     content = content.toLowerCase();
                     String[] contenttabs = content.split(" ");
-                    for(String contenttab : contenttabs){
-                        if (contenttab.isBlank()){
-                            contenttab = "null";
+                    int cpt;
+                    int indice = 0;
+                    for(String contenttab : contenttabs) {
+
+                        if (!contenttab.isBlank()) {
+                            if (!wordtab.contains(content)) {
+                                cpt = 0;
+                                for (int j = 0; j < contenttabs.length; j++) {
+                                    if (contenttab.equals(contenttabs[j])) {
+                                        cpt++;
+
+
+                                    }
+                                }
+                                freq[indice] = cpt;
+                                wordtab.add(contenttab);
+                            }
+
                         }
+                        indice += 1;
                         System.out.println(contenttab);
                     }
-                    Stream Streamcontent = java.util.Arrays.stream(contenttabs);
-                    Streamcontent.forEach(s -> System.out.println(s));
-
-
                 }
                 catch (IOException e){
                     e.printStackTrace();
