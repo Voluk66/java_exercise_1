@@ -23,7 +23,7 @@ public class Launcher {
                 }
             }
             if (index == -1){
-                System.out.println("Unknow Command");
+                System.out.println("Unknown Command");
             }
             else {
                 Isrunning = CommandList.get(index).run(var);

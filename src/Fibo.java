@@ -16,6 +16,8 @@ public class Fibo implements Command{
             f1 = f2;
         }
         System.out.println(f2);
+        f0 = 0;
+        f1 = 1;
         return false;
     }
 }
